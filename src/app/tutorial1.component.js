@@ -12,6 +12,8 @@ var core_1 = require('@angular/core');
 var Tutorial1Component = (function () {
     function Tutorial1Component() {
         this.title = "This is TEDU Angular2";
+        this.fname = "";
+        this.lname = "";
     }
     Tutorial1Component.prototype.OnClick = function (value) {
         console.log("click me");
@@ -20,7 +22,7 @@ var Tutorial1Component = (function () {
     Tutorial1Component = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "<h2>{{title}}</h2>\n\t<button (click)=\"OnClick(name.value)\">Click me</button>\n\t<input type=\"text\" #name/>\n\t",
+            template: "<h2>{{title}}</h2>\n\t<button (click)=\"OnClick(name.value)\">Click me</button>\n\t<input type=\"text\" #name/>\n\t<input type=\"text\" [(ngModel)]= \"fname\" />\n\t<input type=\"text\" [(ngModel)]= \"lname\" />\n\t<br>\n\t<p>Full name: {{fname}} {{lname}}</p>\n\t",
             styles: [".redcolor{\n\t\tcolor: red\n\t}"]
         }), 
         __metadata('design:paramtypes', [])
