@@ -12,18 +12,14 @@ var core_1 = require('@angular/core');
 var Tutorial1Component = (function () {
     function Tutorial1Component() {
         this.title = "This is TEDU Angular2";
-        this.fname = "";
-        this.lname = "";
+        this.showline1 = false;
+        this.color = "greensdf";
+        this.colors = ['red', 'green', 'blue'];
     }
-    Tutorial1Component.prototype.OnClick = function (value) {
-        console.log("click me");
-        console.log(value);
-    };
     Tutorial1Component = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "<h2>{{title}}</h2>\n\t<button (click)=\"OnClick(name.value)\">Click me</button>\n\t<input type=\"text\" #name/>\n\t<input type=\"text\" [(ngModel)]= \"fname\" />\n\t<input type=\"text\" [(ngModel)]= \"lname\" />\n\t<br>\n\t<p>Full name: {{fname}} {{lname}}</p>\n\t",
-            styles: [".redcolor{\n\t\tcolor: red\n\t}"]
+            template: "<h2>{{title}}</h2>\n\t<h3 *ngIf=\"showline1\">This ngif directive line.</h3>\n\t<div [ngSwitch]=\"color\">\n\t\t<p *ngSwitchCase=\"'red'\">This is line red</p>\n\t\t<p *ngSwitchCase=\"'blue'\">This is line blue</p>\n\t\t<p *ngSwitchCase=\"'green'\">This is line green</p>\n\t\t<p *ngSwitchDefault>This is line invalid</p>\n\t\t<ul>\n\t\t\t<li *ngFor=\"let cl of colors\">{{cl}}</li>\n\t\t</ul>\n\t</div>\n\t",
         }), 
         __metadata('design:paramtypes', [])
     ], Tutorial1Component);

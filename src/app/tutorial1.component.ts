@@ -3,23 +3,21 @@ import { Component } from '@angular/core';
 @Component({
 	selector:'my-tutorial',
 	template: `<h2>{{title}}</h2>
-	<button (click)="OnClick(name.value)">Click me</button>
-	<input type="text" #name/>
-	<input type="text" [(ngModel)]= "fname" />
-	<input type="text" [(ngModel)]= "lname" />
-	<br>
-	<p>Full name: {{fname}} {{lname}}</p>
+	<h3 *ngIf="showline1">This ngif directive line.</h3>
+	<div [ngSwitch]="color">
+		<p *ngSwitchCase="'red'">This is line red</p>
+		<p *ngSwitchCase="'blue'">This is line blue</p>
+		<p *ngSwitchCase="'green'">This is line green</p>
+		<p *ngSwitchDefault>This is line invalid</p>
+		<ul>
+			<li *ngFor="let cl of colors">{{cl}}</li>
+		</ul>
+	</div>
 	`,
-	styles: [`.redcolor{
-		color: red
-	}`]
 })
 export class Tutorial1Component{
 	title = "This is TEDU Angular2";
-	fname= "";
-	lname= "";
-	OnClick(value){
-		console.log("click me");
-		console.log(value);
-	}
+	showline1 = false;
+	color = "greensdf";
+	colors: string[] = ['red', 'green', 'blue'];
 }
