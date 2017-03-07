@@ -3,21 +3,27 @@ import { Component } from '@angular/core';
 @Component({
 	selector:'my-tutorial',
 	template: `<h2>{{title}}</h2>
-	<h3 *ngIf="showline1">This ngif directive line.</h3>
-	<div [ngSwitch]="color">
-		<p *ngSwitchCase="'red'">This is line red</p>
-		<p *ngSwitchCase="'blue'">This is line blue</p>
-		<p *ngSwitchCase="'green'">This is line green</p>
-		<p *ngSwitchDefault>This is line invalid</p>
-		<ul>
-			<li *ngFor="let cl of colors">{{cl}}</li>
-		</ul>
-	</div>
+	<p [ngClass]="{classOne: cone, classTwo: ctwo}">This is Ngclass apply style</p>
+	<button (click)="toggle()">Click</button>
+	<p [ngStyle]="{'font-style': style, 'font-size': size}">This paragrap will be apply ngStyle</p>
 	`,
+	styles:[`
+		.classOne{
+			color: red;
+		}
+		.classTwo{
+			background-color: black;
+		}
+	`]
 })
 export class Tutorial1Component{
 	title = "This is TEDU Angular2";
-	showline1 = false;
-	color = "greensdf";
-	colors: string[] = ['red', 'green', 'blue'];
+	cone = true;
+	ctwo= true;
+	style = 'italic';
+	size="20px";
+	toggle(){
+		this.cone = !this.cone;
+		this.ctwo = !this.ctwo;
+	}
 }

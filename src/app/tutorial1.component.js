@@ -12,14 +12,20 @@ var core_1 = require('@angular/core');
 var Tutorial1Component = (function () {
     function Tutorial1Component() {
         this.title = "This is TEDU Angular2";
-        this.showline1 = false;
-        this.color = "greensdf";
-        this.colors = ['red', 'green', 'blue'];
+        this.cone = true;
+        this.ctwo = true;
+        this.style = 'italic';
+        this.size = "20px";
     }
+    Tutorial1Component.prototype.toggle = function () {
+        this.cone = !this.cone;
+        this.ctwo = !this.ctwo;
+    };
     Tutorial1Component = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "<h2>{{title}}</h2>\n\t<h3 *ngIf=\"showline1\">This ngif directive line.</h3>\n\t<div [ngSwitch]=\"color\">\n\t\t<p *ngSwitchCase=\"'red'\">This is line red</p>\n\t\t<p *ngSwitchCase=\"'blue'\">This is line blue</p>\n\t\t<p *ngSwitchCase=\"'green'\">This is line green</p>\n\t\t<p *ngSwitchDefault>This is line invalid</p>\n\t\t<ul>\n\t\t\t<li *ngFor=\"let cl of colors\">{{cl}}</li>\n\t\t</ul>\n\t</div>\n\t",
+            template: "<h2>{{title}}</h2>\n\t<p [ngClass]=\"{classOne: cone, classTwo: ctwo}\">This is Ngclass apply style</p>\n\t<button (click)=\"toggle()\">Click</button>\n\t<p [ngStyle]=\"{'font-style': style, 'font-size': size}\">This paragrap will be apply ngStyle</p>\n\t",
+            styles: ["\n\t\t.classOne{\n\t\t\tcolor: red;\n\t\t}\n\t\t.classTwo{\n\t\t\tbackground-color: black;\n\t\t}\n\t"]
         }), 
         __metadata('design:paramtypes', [])
     ], Tutorial1Component);
