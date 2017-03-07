@@ -2,15 +2,18 @@ import { Component } from '@angular/core';
 
 @Component({
 	selector:'my-tutorial',
-	template: `<h2>This is TEDU Angular2</h2>
-	<h3 [class.redcolor]="applyclass">Property binding</h3>
-	<h4 [style.color]="bluecolor?'blue':'red'">style Binding</h4>
+	template: `<h2>{{title}}</h2>
+	<button (click)="OnClick(name.value)">Click me</button>
+	<input type="text" #name/>
 	`,
 	styles: [`.redcolor{
 		color: red
 	}`]
 })
 export class Tutorial1Component{
-	applyclass = true;
-	bluecolor= true;
+	title = "This is TEDU Angular2";
+	OnClick(value){
+		console.log("click me");
+		console.log(value);
+	}
 }

@@ -12,13 +12,11 @@ var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
         this.name = 'Angular';
-        this.image = "http://lorempixel.com/300/300";
-        this.welcome = "welcome to Angularjs2";
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>Hello {{name}}</h1>\n  \t<img [src]=\"image\">\n  \t<input type=\"text\" [value]=\"welcome\">\n  \t<my-tutorial></my-tutorial>",
+            template: "<h1>Hello {{name}}</h1>\n  \t<my-tutorial></my-tutorial>",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

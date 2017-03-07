@@ -11,13 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var Tutorial1Component = (function () {
     function Tutorial1Component() {
-        this.applyclass = true;
-        this.bluecolor = true;
+        this.title = "This is TEDU Angular2";
     }
+    Tutorial1Component.prototype.OnClick = function (value) {
+        console.log("click me");
+        console.log(value);
+    };
     Tutorial1Component = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "<h2>This is TEDU Angular2</h2>\n\t<h3 [class.redcolor]=\"applyclass\">Property binding</h3>\n\t<h4 [style.color]=\"bluecolor?'blue':'red'\">style Binding</h4>\n\t",
+            template: "<h2>{{title}}</h2>\n\t<button (click)=\"OnClick(name.value)\">Click me</button>\n\t<input type=\"text\" #name/>\n\t",
             styles: [".redcolor{\n\t\tcolor: red\n\t}"]
         }), 
         __metadata('design:paramtypes', [])
