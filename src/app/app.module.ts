@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
 import { Tutorial1Component } from './tutorial1.component';
 import { FormsModule} from "@angular/forms";
+import {ExponentialStrengthPipe} from "./exponential-strength.pipe";
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, Tutorial1Component ],
+  declarations: [ AppComponent, Tutorial1Component, ExponentialStrengthPipe ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
