@@ -6,9 +6,11 @@ import { FormsModule} from "@angular/forms";
 import { EmployeeListComponent } from "./employee.component";
 import {EmployeeService} from "./services/employee.service";
 import {HttpModule} from "@angular/http";
+import {appRoutes} from "./app.routes";
+import {HomeComponent} from "./home.component";
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpModule ],
-  declarations: [ AppComponent, Tutorial1Component, EmployeeListComponent ],
+  imports:      [ BrowserModule, FormsModule, HttpModule, appRoutes ],
+  declarations: [ AppComponent, Tutorial1Component, EmployeeListComponent, HomeComponent ],
   providers: [EmployeeService],
   bootstrap:    [ AppComponent ]
 })
