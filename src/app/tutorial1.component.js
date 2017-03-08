@@ -12,20 +12,28 @@ var core_1 = require('@angular/core');
 var Tutorial1Component = (function () {
     function Tutorial1Component() {
         this.title = "This is TEDU Angular2";
-        this.cone = true;
-        this.ctwo = true;
-        this.style = 'italic';
-        this.size = "20px";
+        this.voted = false;
+        this.onVote = new core_1.EventEmitter();
     }
-    Tutorial1Component.prototype.toggle = function () {
-        this.cone = !this.cone;
-        this.ctwo = !this.ctwo;
+    Tutorial1Component.prototype.vote = function (agree) {
+        this.voted = true;
+        this.onVote.emit(agree);
     };
+    Tutorial1Component.prototype.setTitle = function (title) {
+        this.title = title;
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], Tutorial1Component.prototype, "name", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], Tutorial1Component.prototype, "onVote", void 0);
     Tutorial1Component = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "<h2>{{title}}</h2>\n\t<p [ngClass]=\"{classOne: cone, classTwo: ctwo}\">This is Ngclass apply style</p>\n\t<button (click)=\"toggle()\">Click</button>\n\t<p [ngStyle]=\"{'font-style': style, 'font-size': size}\">This paragrap will be apply ngStyle</p>\n\t",
-            styles: ["\n\t\t.classOne{\n\t\t\tcolor: red;\n\t\t}\n\t\t.classTwo{\n\t\t\tbackground-color: black;\n\t\t}\n\t"]
+            template: "<h2>{{title}}</h2>\n\t<p>child name:{{name}}</p>\n\t<button [disabled]=\"voted\" (click)=\"vote(true)\">Agrre</button>\n\t<button [disabled]=\"voted\" (click)=\"vote(false)\">Disgree</button>\n\tResuilt: {{voted}}\n\t",
         }), 
         __metadata('design:paramtypes', [])
     ], Tutorial1Component);
