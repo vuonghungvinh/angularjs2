@@ -10,9 +10,20 @@ import {appRoutes} from "./app.routes";
 import {HomeComponent} from "./home.component";
 import {NotFoundComponent} from "./notfound.component";
 import { EmployeeDetailComponent } from "./employ-detail.component";
+import { EmployeeProjectComponent } from "./employee-project.component";
+import { EmployeeOverviewComponent } from "./employee-overview.component";
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule, appRoutes ],
-  declarations: [ AppComponent, Tutorial1Component, EmployeeListComponent, HomeComponent, NotFoundComponent, EmployeeDetailComponent ],
+  declarations: [ 
+  	AppComponent, 
+  	Tutorial1Component, 
+  	EmployeeListComponent, 
+  	HomeComponent, 
+  	NotFoundComponent, 
+  	EmployeeDetailComponent,
+  	EmployeeProjectComponent,
+  	EmployeeOverviewComponent
+  ],
   providers: [EmployeeService],
   bootstrap:    [ AppComponent ]
 })

@@ -20,13 +20,24 @@ var app_routes_1 = require("./app.routes");
 var home_component_1 = require("./home.component");
 var notfound_component_1 = require("./notfound.component");
 var employ_detail_component_1 = require("./employ-detail.component");
+var employee_project_component_1 = require("./employee-project.component");
+var employee_overview_component_1 = require("./employee-overview.component");
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, app_routes_1.appRoutes],
-            declarations: [app_component_1.AppComponent, tutorial1_component_1.Tutorial1Component, employee_component_1.EmployeeListComponent, home_component_1.HomeComponent, notfound_component_1.NotFoundComponent, employ_detail_component_1.EmployeeDetailComponent],
+            declarations: [
+                app_component_1.AppComponent,
+                tutorial1_component_1.Tutorial1Component,
+                employee_component_1.EmployeeListComponent,
+                home_component_1.HomeComponent,
+                notfound_component_1.NotFoundComponent,
+                employ_detail_component_1.EmployeeDetailComponent,
+                employee_project_component_1.EmployeeProjectComponent,
+                employee_overview_component_1.EmployeeOverviewComponent
+            ],
             providers: [employee_service_1.EmployeeService],
             bootstrap: [app_component_1.AppComponent]
         }), 
