@@ -22,6 +22,10 @@ var notfound_component_1 = require("./notfound.component");
 var employ_detail_component_1 = require("./employ-detail.component");
 var employee_project_component_1 = require("./employee-project.component");
 var employee_overview_component_1 = require("./employee-overview.component");
+var login_component_1 = require("./login.component");
+var login_service_1 = require("./services/login.service");
+var check_login_guard_1 = require("./guards/check-login.guard");
+var check_save_form_guard_1 = require("./guards/check-save-form.guard");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -36,9 +40,15 @@ var AppModule = (function () {
                 notfound_component_1.NotFoundComponent,
                 employ_detail_component_1.EmployeeDetailComponent,
                 employee_project_component_1.EmployeeProjectComponent,
-                employee_overview_component_1.EmployeeOverviewComponent
+                employee_overview_component_1.EmployeeOverviewComponent,
+                login_component_1.LoginComponent
             ],
-            providers: [employee_service_1.EmployeeService],
+            providers: [
+                employee_service_1.EmployeeService,
+                login_service_1.LoginService,
+                check_login_guard_1.CheckLoginGuard,
+                check_save_form_guard_1.CheckSaveFormGuard
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
