@@ -1,0 +1,29 @@
+<form *ngIf="employee" class="form-horizontal" (ngSubmit)="saveForm()" #f="ngForm">
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="text" name="name" [(ngModel)]="employee.name">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Age</label>
+		<div class="col-sm-10">
+			<input class="form-control" type="number" name="age" [(ngModel)]="employee.age">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<div class="checkbox text-left">
+				<label>
+					<input type="checkbox" name="status" [(ngModel)]="employee.status"> Status
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10 text-left">
+			<button type="submit" class="btn btn-primary"> Save</button>
+			<button type="button" class="btn btn-default" (click)="GotoEmployee()">Cancel</button>
+		</div>
+	</div>
+</form>

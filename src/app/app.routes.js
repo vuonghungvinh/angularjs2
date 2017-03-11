@@ -9,6 +9,8 @@ var employee_overview_component_1 = require("./employee-overview.component");
 var login_component_1 = require("./login.component");
 var check_login_guard_1 = require("./guards/check-login.guard");
 var check_save_form_guard_1 = require("./guards/check-save-form.guard");
+var employee_edit_component_1 = require("./employee-edit.component");
+var employee_add_component_1 = require("./employee-add.component");
 var routing = [
     { path: "", component: home_component_1.HomeComponent },
     { path: "login", component: login_component_1.LoginComponent },
@@ -18,6 +20,8 @@ var routing = [
             { path: "projects", component: employee_project_component_1.EmployeeProjectComponent }
         ] },
     { path: "employee", component: employee_component_1.EmployeeListComponent, canActivate: [check_login_guard_1.CheckLoginGuard] },
+    { path: "employee-edit/:id", component: employee_edit_component_1.EmployeeEditComponent },
+    { path: "employee-add", component: employee_add_component_1.EmployeeAddComponent },
     { path: '**', component: notfound_component_1.NotFoundComponent }
 ];
 exports.appRoutes = router_1.RouterModule.forRoot(routing);

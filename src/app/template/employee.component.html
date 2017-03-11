@@ -1,3 +1,8 @@
+<div class="row">
+	<div class="col-md-12">
+		<a routerLink="/employee-add" class="btn btn-success">Add</a>
+	</div>
+</div>
 <table class="table">
 	<thead>
 		<tr>
@@ -16,6 +21,8 @@
 			<td>{{employee.createdAt | date}}</td>
 			<td>
 				<a [routerLink]="['/employee-detail', employee.id]">Show Detail</a>
+				<a [routerLink]="['/employee-edit', employee.id]" class="btn btn-primary">Edit</a>
+				<a (click)="Delete(employee.id)" class="btn btn-danger">Delete</a>
 			</td>
 		</tr>
 	</tbody>

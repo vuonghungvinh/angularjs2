@@ -24,13 +24,29 @@ var EmployeeListComponent = (function () {
             console.log(_this.curentPage);
             console.log(params['filter']);
         });
+        this.loadData();
+        this.pages = [1, 2, 3, 4, 5];
+    };
+    EmployeeListComponent.prototype.Delete = function (id) {
+        var _this = this;
+        var confirmResuilt = confirm("are you sure delete Employee");
+        if (confirmResuilt) {
+            this.employeeService.Delete(id).subscribe(function (response) {
+                if (response) {
+                    alert("Delete Success");
+                    _this.loadData();
+                }
+            });
+        }
+    };
+    EmployeeListComponent.prototype.loadData = function () {
+        var _this = this;
         this.employeeService.GetList().subscribe(function (response) {
             _this.employees = response;
         }, function (err) {
             console.log("System error api");
             console.log(err);
         });
-        this.pages = [1, 2, 3, 4, 5];
     };
     EmployeeListComponent = __decorate([
         core_1.Component({

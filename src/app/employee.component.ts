@@ -23,12 +23,26 @@ export class EmployeeListComponent implements OnInit{
 			console.log(this.curentPage);
 			console.log(params['filter']);
 		});
+		this.loadData();
+		this.pages = [1, 2, 3, 4, 5];
+	}
+	Delete(id: number){
+		let confirmResuilt = confirm("are you sure delete Employee");
+		if (confirmResuilt){
+			this.employeeService.Delete(id).subscribe(response=>{
+				if (response){
+					alert("Delete Success");
+					this.loadData();
+				}
+			})
+		}
+	}
+	loadData(){
 		this.employeeService.GetList().subscribe((response:any)=>{
 			this.employees = response
 		}, (err)=>{
 			console.log("System error api");
 			console.log(err);
 		});
-		this.pages = [1, 2, 3, 4, 5];
 	}
 }
