@@ -10,25 +10,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var employee_service_1 = require("./services/employee.service");
+var router_1 = require("@angular/router");
 var EmployeeListComponent = (function () {
-    function EmployeeListComponent(employeeService) {
+    function EmployeeListComponent(employeeService, router, activaterouter) {
         this.employeeService = employeeService;
+        this.router = router;
+        this.activaterouter = activaterouter;
     }
     EmployeeListComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.activaterouter.queryParams.subscribe(function (params) {
+            _this.curentPage = params['page'] || 1;
+            console.log(_this.curentPage);
+            console.log(params['filter']);
+        });
         this.employeeService.GetList().subscribe(function (response) {
             _this.employees = response;
         }, function (err) {
             console.log("System error api");
             console.log(err);
         });
+        this.pages = [1, 2, 3, 4, 5];
     };
     EmployeeListComponent = __decorate([
         core_1.Component({
             selector: "employee-list",
             templateUrl: "app/template/employee.component.html",
         }), 
-        __metadata('design:paramtypes', [employee_service_1.EmployeeService])
+        __metadata('design:paramtypes', [employee_service_1.EmployeeService, router_1.Router, router_1.ActivatedRoute])
     ], EmployeeListComponent);
     return EmployeeListComponent;
 }());
